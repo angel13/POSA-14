@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.EditText;
 import edu.vuum.mocca.R;
 import edu.vuum.mocca.storage.StorageUtilities;
+import edu.vuum.mocca.storage.StorageUtilities.SecurityLevel;
 
 /**
  * The activity that allows the user to provide login information.
@@ -27,7 +28,7 @@ public class LoginActivity extends StoryActivityBase{
 	
 	// Make sure we use maximum security to store login credentials
 	static final int MAX_SECURITY = Integer.MAX_VALUE;
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -47,7 +48,8 @@ public class LoginActivity extends StoryActivityBase{
 	public static File getLoginFile (Context context) {
 		return StorageUtilities.getOutputMediaFile(context, 	// Line 48
 				StorageUtilities.MEDIA_TYPE_TEXT, 
-				MAX_SECURITY, 
+				StorageUtilities.SECURITY_PRIVATE,   //ACTION:   Change to explicit private label
+				//MAX_SECURITY, 
 				"login.txt");
 	}
 	

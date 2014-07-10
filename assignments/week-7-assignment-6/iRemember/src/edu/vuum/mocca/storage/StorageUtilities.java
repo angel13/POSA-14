@@ -24,6 +24,8 @@ public class StorageUtilities {
 	public static final int SECURITY_PUBLIC = 0; // Line 24
 	public static final int SECURITY_PRIVATE = 1;
 	
+	public enum SecurityLevel{ PRIVATE, PUBLIC}
+	
 	// Constant that denotes what media type a file should be stored as.
 	public static final int MEDIA_TYPE_IMAGE = 1;
 	public static final int MEDIA_TYPE_AUDIO = 2;
@@ -70,6 +72,7 @@ public class StorageUtilities {
 		
 		// If security is private, store it in the app's private directory.
 		if (security == SECURITY_PRIVATE) {
+		//if	(security == SecurityLevel.PRIVATE){
 			storageDir = context.getFilesDir();
 		}
 		// Otherwise, store the file in a public directory depending on its media type.
